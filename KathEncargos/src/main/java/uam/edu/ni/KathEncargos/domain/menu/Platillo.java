@@ -3,6 +3,7 @@ package uam.edu.ni.KathEncargos.domain.menu;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -30,9 +31,22 @@ public class Platillo {
 
     // Relaciones
     // UN platillo puede tener varias guarniciones
-    @OneToMany(mappedBy = "platillo", cascade = CascadeType.ALL)
-    @Column(nullable = false)
-    private List<Guarnicion> guarniciones;
+    @ManyToMany
+    @JoinTable(
+            name = "platillo_guarnicion",
+            joinColumns = @JoinColumn(name = "id_platillo"),
+            inverseJoinColumns = @JoinColumn(name = "id_guarnicion")
+    )
+    private Collection<Guarnicion> guarniciones;
+
+    @ManyToOne
+    @JoinColumn(name = "id_bebida")
+    private Bebida bebida;
+
+    @ManyToOne
+    @JoinColumn(name = "id_postre")
+    private Postre postre;
+
 
     //Métodos de calculo de precio.
 
