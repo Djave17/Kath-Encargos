@@ -17,28 +17,29 @@
 	correspodiente a tu base de datos al pom.xml de tu proyecto.	
 	-->
 	 
-	<!-- HSQLDB -->   	
+	<!-- HSQLDB
     <Resource name="jdbc/kath_pedidosDS" auth="Container" type="javax.sql.DataSource"
 	      maxTotal="20" maxIdle="5" maxWaitMillis="10000"
 	      username="sa" password="" 
 	      driverClassName="org.hsqldb.jdbc.JDBCDriver"
 	      url="jdbc:hsqldb:hsql://localhost:1666"/>
-	      
-	<!-- MySQL       
+	  -->
+
+    <!-- MySQL
     <Resource name="jdbc/kath_pedidosDS" auth="Container" type="javax.sql.DataSource"
-	      maxTotal="20" maxIdle="5" maxWaitMillis="10000"
-	      username="root" password="" 
-	      driverClassName="com.mysql.cj.jdbc.Driver"
-	      url="jdbc:mysql://localhost:3306/kath_pedidosdb"/>	      
-	-->      
+          maxTotal="20" maxIdle="5" maxWaitMillis="10000"
+          username="root" password=""
+          driverClassName="com.mysql.cj.jdbc.Driver"
+          url="jdbc:mysql://localhost:3306/kath_pedidosdb"/>
+    -->
 	
-	<!-- PostgreSQL 
+	<!-- PostgreSQL -->
 	<Resource name="jdbc/kath_pedidosDS" auth="Container" type="javax.sql.DataSource"
 	      maxTotal="20" maxIdle="5" maxWaitMillis="10000"
-	      username="postgres" password="" 
+	      username="postgres" password="soli2402"
 	      driverClassName="org.postgresql.Driver" 
 	      url="jdbc:postgresql://localhost/kath_pedidosdb"/>
-	-->
+
 	
 	<!-- Oracle 
 	<Resource name="jdbc/kath_pedidosDS" auth="Container" type="javax.sql.DataSource"
