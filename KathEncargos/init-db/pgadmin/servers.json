@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "KathEncargos Local",
+      "Group": "KathEncargos",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "KathEncargos",
+      "Username": "postgres",
+      "PassFile": "/pgpass",
+      "SSLMode": "prefer"
+    }
+  }
+}

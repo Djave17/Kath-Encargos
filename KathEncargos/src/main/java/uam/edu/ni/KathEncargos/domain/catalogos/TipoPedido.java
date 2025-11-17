@@ -1,10 +1,14 @@
 package uam.edu.ni.KathEncargos.domain.catalogos;
 
+
+import lombok.*;
+
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
 
 @Entity @Table(name = "TipoPedido")
+@Getter @Setter
 public class TipoPedido {
 
     @Id
