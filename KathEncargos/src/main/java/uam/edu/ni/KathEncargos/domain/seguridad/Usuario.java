@@ -2,18 +2,15 @@ package uam.edu.ni.KathEncargos.domain.seguridad;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
-import org.openxava.annotations.Hidden;
-import org.openxava.annotations.ReferenceView;
-import org.openxava.annotations.Required;
-import java.util.Date;
-import javax.persistence.*;
 import org.openxava.annotations.*;
-import uam.edu.ni.KathEncargos.domain.seguridad.Rol;
+
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Table(name = "Usuario")
-@Getter @Setter
+@Table(name = "usuario")
+@Getter
+@Setter
 @View(members =
         "Datos Personales[" +
                 "   nombreUsuario; telefono; email; direccionReferencia;" +
@@ -26,35 +23,35 @@ import uam.edu.ni.KathEncargos.domain.seguridad.Rol;
                 "]")
 public class Usuario {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
-    private Long id_usuario;
+    private Long idUsuario;
 
-    @Column(length = 50, nullable = false)
-    private String nombre_usuario;
+    @Column(name = "nombre_usuario", length = 50, nullable = false)
+    private String nombreUsuario;
 
     @Column(length = 20)
     private String telefono;
 
     @Column(length = 100, nullable = false)
     @Stereotype("PASSWORD")
-    private String contraseña;
+    private String contrasena;
 
     @Column(length = 100)
     private String email;
 
-    @Column(length = 150)
-    private String direccion_referencia;
+    @Column(name = "direccion_referencia", length = 150)
+    private String direccionReferencia;
 
     @Temporal(TemporalType.DATE)
-    private Date fecha_registro;
+    @Column(name = "fecha_registro")
+    private Date fechaRegistro;
 
     private Boolean activo;
 
     @ManyToOne
-    @JoinColumn(name = "Rol_id_rol")
+    @JoinColumn(name = "id_rol")
     @DescriptionsList(descriptionProperties = "nombre")
     private Rol rol;
 }
