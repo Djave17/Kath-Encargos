@@ -1,4 +1,3 @@
-# kath-pedidos
 # KathEncargo
 
 Sistema de gestión de pedidos para un restaurante tipo buffet con modalidad **solo pickup**.  
