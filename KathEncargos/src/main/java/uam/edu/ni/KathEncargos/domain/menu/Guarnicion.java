@@ -7,6 +7,7 @@ import uam.edu.ni.KathEncargos.domain.catalogos.CategoriaGuarnicion;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Collection;
 
 @Entity @Table(name = "Guarnicion")
 @Getter @Setter
@@ -31,6 +32,9 @@ public class Guarnicion {
     @ManyToOne
     @JoinColumn(name = "id_categoriaGuarnicion", nullable = false)
     private CategoriaGuarnicion categoriaGuarnicion;
+
+    @ManyToMany(mappedBy = "guarniciones")
+    private Collection<Platillo> platillos;
 
 
 
