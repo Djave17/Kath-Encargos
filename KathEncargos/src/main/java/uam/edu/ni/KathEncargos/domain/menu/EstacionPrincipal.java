@@ -4,7 +4,7 @@ package uam.edu.ni.KathEncargos.domain.menu;
 import lombok.*;
 import org.openxava.annotations.*;
 import uam.edu.ni.KathEncargos.domain.catalogos.CategoriaFuerte;
-
+import org.openxava.annotations.Hidden;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 public class EstacionPrincipal {
 
     @Id
+    @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id_estacion", nullable = false)
     private Long idEstacionPrincipal;

@@ -2,7 +2,7 @@ package uam.edu.ni.KathEncargos.domain.catalogos;
 
 import lombok.AllArgsConstructor;
 import lombok.*;
-
+import org.openxava.annotations.Hidden;
 
 import javax.persistence.*;
 
@@ -12,6 +12,7 @@ import javax.persistence.*;
 public class CategoriaGuarnicion {
 
     @Id
+    @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id_categoriaGuarnicion", nullable = false)
     private Long idCategoriaGuarnicion;

@@ -2,7 +2,7 @@ package uam.edu.ni.KathEncargos.domain.catalogos;
 
 import lombok.Getter;
 import lombok.Setter;
-
+import org.openxava.annotations.Hidden;
 import javax.persistence.*;
 
 /*
@@ -16,6 +16,7 @@ import javax.persistence.*;
 public class EstadoPedido {
 
     @Id
+    @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id_estado_pedido", nullable = false)
     private Long idEstado;

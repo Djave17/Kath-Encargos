@@ -4,7 +4,7 @@ package uam.edu.ni.KathEncargos.domain.menu;
 import lombok.*;
 import org.openxava.annotations.*;
 import uam.edu.ni.KathEncargos.domain.catalogos.CategoriaGuarnicion;
-
+import org.openxava.annotations.Hidden;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Collection;
@@ -14,6 +14,7 @@ import java.util.Collection;
 public class Guarnicion {
 
     @Id
+    @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id_guarnicion", nullable = false)
     private Long idGuarnicion;

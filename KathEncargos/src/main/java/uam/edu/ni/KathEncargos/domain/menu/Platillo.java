@@ -5,13 +5,14 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
-
+import org.openxava.annotations.Hidden;
 @Entity
 @Table(name = "Platillo")
 @Getter @Setter
 public class Platillo {
 
     @Id
+    @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id_platillo", nullable = false)
     private Long id;

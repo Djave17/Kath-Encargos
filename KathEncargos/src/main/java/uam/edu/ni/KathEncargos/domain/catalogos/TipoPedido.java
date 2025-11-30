@@ -2,7 +2,7 @@ package uam.edu.ni.KathEncargos.domain.catalogos;
 
 
 import lombok.*;
-
+import org.openxava.annotations.Hidden;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
@@ -12,6 +12,7 @@ import javax.persistence.Table;
 public class TipoPedido {
 
     @Id
+    @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id_tipo_pedido", nullable = false)
     private Long idTipoPedido;

@@ -1,5 +1,6 @@
 package uam.edu.ni.KathEncargos.domain.seguridad;
 
+import org.openxava.annotations.Hidden;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.logging.log4j.core.config.plugins.validation.constraints.Required;
@@ -16,6 +17,7 @@ import java.util.List;
 public class Rol {
 
     @Id
+    @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_rol")
     private Long idRol;

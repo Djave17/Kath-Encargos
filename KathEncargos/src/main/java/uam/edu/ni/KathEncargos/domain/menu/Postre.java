@@ -3,7 +3,7 @@ package uam.edu.ni.KathEncargos.domain.menu;
 
 import lombok.*;
 import org.openxava.annotations.*;
-
+import org.openxava.annotations.Hidden;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 @Getter @Setter
 public class Postre {
     @Id
+    @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id_bebida", nullable = false)
     private Long id;

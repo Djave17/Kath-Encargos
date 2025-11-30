@@ -1,6 +1,7 @@
 package uam.edu.ni.KathEncargos.domain.menu;
 
 import lombok.*;
+import org.openxava.annotations.Hidden;
 import org.openxava.annotations.Money;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import java.math.BigDecimal;
 public class Bebida {
 
     @Id
+    @Hidden  // ? Oculta el ID en la interfaz
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id_bebida", nullable = false)
     private Long id;
@@ -28,6 +30,5 @@ public class Bebida {
     @Column(name ="precio", nullable = false)
     @Money
     private BigDecimal precio;
-
 
 }

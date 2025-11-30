@@ -3,7 +3,7 @@ package uam.edu.ni.KathEncargos.domain.seguridad;
 import lombok.Getter;
 import lombok.Setter;
 import org.openxava.annotations.*;
-
+import org.openxava.annotations.Hidden;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -28,6 +28,7 @@ import java.util.Date;
 public class Usuario {
 
     @Id
+    @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Long idUsuario;

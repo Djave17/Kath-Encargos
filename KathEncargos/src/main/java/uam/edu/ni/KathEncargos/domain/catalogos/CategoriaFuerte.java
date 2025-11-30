@@ -1,7 +1,7 @@
 package uam.edu.ni.KathEncargos.domain.catalogos;
 
 import lombok.*;
-
+import org.openxava.annotations.Hidden;
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +10,7 @@ import javax.persistence.*;
 public class CategoriaFuerte {
 
     @Id
+    @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id_categoriaFuerte", nullable = false)
     private Long idCategoriaFuerte;

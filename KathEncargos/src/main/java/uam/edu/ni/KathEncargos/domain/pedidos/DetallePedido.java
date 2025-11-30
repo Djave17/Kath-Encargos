@@ -2,10 +2,11 @@ package uam.edu.ni.KathEncargos.domain.pedidos;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.openxava.annotations.Hidden;
 import org.openxava.annotations.Money;
 import uam.edu.ni.KathEncargos.domain.menu.Platillo;
 import uam.edu.ni.KathEncargos.domain.seguridad.Usuario;
-
+import org.openxava.annotations.Hidden;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -15,6 +16,7 @@ import java.math.BigDecimal;
 
 public class DetallePedido {
     @Id
+    @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_detallePedido", nullable = false)
     private Long idDetallePedido;

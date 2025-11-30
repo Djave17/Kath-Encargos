@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.openxava.annotations.*;
-
+import org.openxava.annotations.Hidden;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -22,11 +22,12 @@ import javax.validation.constraints.Size;
                 "]"
 )
 @Tab(properties =
-        "oid, nombreRepartidor, telefonoContacto, direccionEntrega, horaSalida, horaLlegada"
+        "nombreRepartidor, telefonoContacto, direccionEntrega, horaSalida, horaLlegada"
 )
 public class Delivery {
 
     @Id
+    @Hidden
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String oid;
