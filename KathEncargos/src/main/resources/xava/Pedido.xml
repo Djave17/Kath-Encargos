@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-module>
+    <view name="Pedidos">
+
+        <!-- Sección principal: Datos del pedido -->
+        <section name="Datos del Pedido">
+            <property name="usuario"/>
+            <property name="operador"/>
+            <property name="tipoPedido"/>
+            <property name="estadoPedido"/>
+            <property name="fechaHoraCreacion"/>
+            <property name="horaEstimadaRetiro"/>
+            <property name="observaciones"/>
+        </section>
+
+        <!-- Sección de detalles de pedido -->
+        <section name="Detalles del Pedido" collection="detalles">
+            <property name="platillo"/>
+            <property name="cantidad"/>
+            <property name="precioUnitario" read-only="true"/>
+            <property name="subtotal" read-only="true"/>
+        </section>
+
+        <!-- Sección de totales calculados -->
+        <section name="Totales">
+            <property name="montoSubto" read-only="true"/>
+            <property name="impuestos" read-only="true"/>
+            <property name="montoTotal" read-only="true"/>
+            <property name="totalProductos" read-only="true"/>
+        </section>
+
+    </view>
+</entity-module>

@@ -1,11 +1,15 @@
 package uam.edu.ni.KathEncargos.domain.menu;
 
 import lombok.*;
+import org.openxava.annotations.Depends;
+import org.openxava.annotations.Hidden;
+import org.openxava.annotations.Money;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Collection;
-import java.util.List;
-import org.openxava.annotations.Hidden;
+
 @Entity
 @Table(name = "Platillo")
 @Getter @Setter
@@ -26,12 +30,13 @@ public class Platillo {
     @Column(name ="activo", nullable = false)
     private Boolean activo;
 
-    @Column(name ="precio", nullable = false)
-    private Double precio;
+    // Precio base del platillo
+    @Money
+    @Column(name ="precio", nullable = false, precision = 12, scale = 2)
+    private BigDecimal precio;
 
 
     // Relaciones
-    // UN platillo puede tener varias guarniciones
     @ManyToMany
     @JoinTable(
             name = "platillo_guarnicion",
@@ -49,9 +54,35 @@ public class Platillo {
     private Postre postre;
 
 
-    //Métodos de calculo de precio.
+    // Cálculo del precio total del platillo con guarniciones, bebida y postre
+    @Transient
+    @Depends("precio, guarniciones, bebida, postre")
+    public BigDecimal getTotal() {
+        BigDecimal total = BigDecimal.ZERO;
 
+        if (this.precio != null) {
+            total = total.add(this.precio);
+        }
 
+        if (this.guarniciones != null) {
+            for (Guarnicion g : this.guarniciones) {
+                if (g != null && g.getPrecio() != null) {
+                    total = total.add(g.getPrecio());
+                }
+            }
+        }
 
+        if (this.bebida != null && this.bebida.getPrecio() != null) {
+            total = total.add(this.bebida.getPrecio());
+        }
+
+        if (this.postre != null && this.postre.getPrecio() != null) {
+            total = total.add(this.postre.getPrecio());
+        }
+
+        // devolver con 2 decimales
+        return total.setScale(2, RoundingMode.HALF_UP);
+    }
 
 }
+

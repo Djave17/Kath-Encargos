@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-module>
+    <view name="Platillos">
+
+        <property name="nombre"/>
+        <property name="descripcion"/>
+        <property name="activo"/>
+        <property name="precio"/>
+
+        <!-- Relaciones -->
+        <property name="bebida"/>
+        <property name="postre"/>
+        <property name="guarniciones"/>
+
+        <!-- TOTAL CALCULADO -->
+        <property name="total" read-only="true"/>
+
+    </view>
+</entity-module>

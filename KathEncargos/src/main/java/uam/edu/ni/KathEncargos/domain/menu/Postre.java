@@ -14,10 +14,10 @@ public class Postre {
     @Id
     @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id_bebida", nullable = false)
+    @Column(name ="id_postre", nullable = false)
     private Long id;
 
-    @Column(name ="nombre_bebida", length = 100, nullable = false)
+    @Column(name ="nombre_postre", length = 100, nullable = false)
     private String nombre;
 
     @Column(name ="descripcion", length = 300, nullable = false)

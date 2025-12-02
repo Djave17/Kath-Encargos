@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-module>
+    <view name="Detalles">
+
+        ```
+        <!-- Datos del detalle -->
+        <property name="cantidad"/>
+        <property name="platillo"/>
+        <property name="pedido"/>
+
+        <!-- Cálculos automáticos -->
+        <property name="precioUnitario" read-only="true"/>
+        <property name="subtotal" read-only="true"/>
+
+    </view>
+    ```
+
+</entity-module>

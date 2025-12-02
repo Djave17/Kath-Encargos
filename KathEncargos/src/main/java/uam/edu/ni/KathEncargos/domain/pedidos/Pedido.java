@@ -9,6 +9,7 @@ import uam.edu.ni.KathEncargos.domain.seguridad.Usuario;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -71,4 +72,42 @@ public class Pedido {
 
     @OneToMany(mappedBy = "pedido")
     private List<HistorialEstadoPedido> historial;
+
+    @Transient
+    public BigDecimal calcularSubtotal() {
+        BigDecimal subtotal = BigDecimal.ZERO;
+        if (detalles != null) {
+            for (DetallePedido d : detalles) {
+                if (d.getSubtotal() != null) {
+                    subtotal = subtotal.add(d.getSubtotal());
+                }
+            }
+        }
+        return subtotal.setScale(2, RoundingMode.HALF_UP);
+    }
+
+    @Transient
+    public BigDecimal calcularImpuestos() {
+        BigDecimal impuestoPorcentaje = new BigDecimal("0.15"); // 15% ejemplo
+        return calcularSubtotal().multiply(impuestoPorcentaje).setScale(2, RoundingMode.HALF_UP);
+    }
+
+    @Transient
+    public BigDecimal calcularTotal() {
+        return calcularSubtotal().add(calcularImpuestos()).setScale(2, RoundingMode.HALF_UP);
+    }
+
+    @Transient
+    public int contarProductos() {
+        int total = 0;
+        if (detalles != null) {
+            for (DetallePedido d : detalles) {
+                if (d.getCantidad() != null) {
+                    total += d.getCantidad();
+                }
+            }
+        }
+        return total;
+    }
+
 }
