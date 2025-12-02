@@ -19,6 +19,25 @@
         <accion nombre="new" icono="library-plus" atajo-de-teclado="Control N" 
                 clase="acciones.CrearProfesor"/>        
     </controlador>
-    -->
+    --><controlador nombre="TypicalConReporte">
+    <hereda-de controlador="Typical"/><!-- opcional o puedes omitirlo según tu archivo -->
+
+    <accion nombre="printCustomReport"
+            icono="printer"
+            modo="list"
+            clase="uam.edu.ni.KathEncargos.report.actions.PrintMyCustomReportAction"/>
+
+    <accion nombre="printUsuarios"
+            icono="printer"
+            modo="list"
+            clase="uam.edu.ni.KathEncargos.report.actions.PrintUsuariosReportActions"/>
+
+    <accion nombre="printPedidos"
+            icono="printer"
+            modo="list"
+            clase="uam.edu.ni.KathEncargos.report.actions.PrintPedidosReportAction"/>
+
+
+</controlador>
     
 </controladores>

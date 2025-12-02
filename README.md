@@ -1,3 +1,0 @@
-# kath-pedidos
-
-RAMA DAVID

@@ -1,41 +1,40 @@
 package uam.edu.ni.KathEncargos.domain.menu;
 
 
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
-import org.openxava.annotations.Hidden;
-import org.openxava.annotations.Required;
+import lombok.*;
+import org.openxava.annotations.*;
 import uam.edu.ni.KathEncargos.domain.catalogos.CategoriaFuerte;
+import org.openxava.annotations.Hidden;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
-import java.util.List;
+import java.math.BigDecimal;
 
 @Entity
-@Table(name = "estacion_principal")
-@Getter @Setter
+@Table(name = "EstacionPrincipal")
+@Setter @Getter
 public class EstacionPrincipal {
 
     @Id
     @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_estacion")
-    private Long oid;
+    @Column(name ="id_estacion", nullable = false)
+    private Long idEstacionPrincipal;
 
-    @Column(name = "nombre_estacio", length = 50, nullable = false)
-    @Size(min = 2, max = 50)
-    @Required
-    private String nombreEstacio;
+    @Column(name ="nombre_estacion", length = 100, nullable = false)
+    private String nombreEstacion;
 
-    @Column(name = "descripcion", length = 300)
-    @Size(max = 300)
-    private String descripcion;
+    @Column(name ="descripcion", length = 300, nullable = false)
+    private String descripcionEstacion;
 
-    @Column(name = "activo")
+    @Column(name ="activo", nullable = false)
     private Boolean activo;
 
-    // aqui va la relacion con categoria fuerte
-    @OneToMany(mappedBy = "estacionPrincipal", fetch = FetchType.LAZY)
-    private List<CategoriaFuerte> proteinas;
+    @Money
+    @Column(name ="precio", nullable = false)
+    private BigDecimal precio;
+
+    //Foreing Key de categoria: Estación principal esta compuesta de una categoria fuerte
+    @ManyToOne
+    @JoinColumn(name = "id_categoriaFuerte", nullable = false)
+    private CategoriaFuerte categoriaFuerte;
 }

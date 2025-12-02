@@ -1,13 +1,18 @@
 package uam.edu.ni.KathEncargos.domain.catalogos;
 
+
+import lombok.*;
+import org.openxava.annotations.Hidden;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
 
 @Entity @Table(name = "TipoPedido")
+@Getter @Setter
 public class TipoPedido {
 
     @Id
+    @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id_tipo_pedido", nullable = false)
     private Long idTipoPedido;

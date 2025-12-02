@@ -1,31 +1,57 @@
 package uam.edu.ni.KathEncargos.domain.menu;
 
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
-import org.openxava.annotations.Hidden;
+import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
+import java.util.Collection;
 import java.util.List;
-
+import org.openxava.annotations.Hidden;
 @Entity
-@Table(name = "platillo")
+@Table(name = "Platillo")
 @Getter @Setter
 public class Platillo {
 
     @Id
     @Hidden
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
-    @Column(name = "id_platillo")
-    private String oid;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="id_platillo", nullable = false)
+    private Long id;
 
-    @Column(name = "observacion", length = 300)
-    @Size(max = 300)
-    private String observacion;
+    @Column(name ="nombre_platillo", length = 100, nullable = false)
+    private String nombre;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_platillo")
-    private List<Guarnicion> guarniciones;
+    @Column(name ="descripcion", length = 300, nullable = false)
+    private String descripcion;
+
+    @Column(name ="activo", nullable = false)
+    private Boolean activo;
+
+    @Column(name ="precio", nullable = false)
+    private Double precio;
+
+
+    // Relaciones
+    // UN platillo puede tener varias guarniciones
+    @ManyToMany
+    @JoinTable(
+            name = "platillo_guarnicion",
+            joinColumns = @JoinColumn(name = "id_platillo"),
+            inverseJoinColumns = @JoinColumn(name = "id_guarnicion")
+    )
+    private Collection<Guarnicion> guarniciones;
+
+    @ManyToOne
+    @JoinColumn(name = "id_bebida")
+    private Bebida bebida;
+
+    @ManyToOne
+    @JoinColumn(name = "id_postre")
+    private Postre postre;
+
+
+    //Métodos de calculo de precio.
+
+
+
+
 }
