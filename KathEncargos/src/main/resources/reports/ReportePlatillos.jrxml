@@ -27,7 +27,7 @@
     </title>
 
     <columnHeader>
-        <band height="24">
+        <band height="48">
             <staticText>
                 <reportElement x="0" y="0" width="50" height="24" backcolor="#F5F5DC" mode="Opaque"/>
                 <text><![CDATA[ID]]></text>

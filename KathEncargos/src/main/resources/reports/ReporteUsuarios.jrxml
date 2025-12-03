@@ -2,8 +2,20 @@
 <!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN"
         "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
 
-<jasperReport name="ReporteUsuarios" pageWidth="595" pageHeight="842" columnWidth="555"
+<jasperReport name="ReporteUsuarios" orientation="Landscape" pageWidth="842" pageHeight="595" columnWidth="802"
               leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+
+    <style name="TableHeader" mode="Opaque" backcolor="#E6E6E6">
+        <box>
+            <pen lineWidth="1.0" lineColor="#000000"/>
+        </box>
+    </style>
+
+    <style name="TableCell">
+        <box>
+            <pen lineWidth="1.0" lineColor="#000000"/>
+        </box>
+    </style>
 
     <field name="idUsuario" class="java.lang.Long"/>
     <field name="nombreUsuario" class="java.lang.String"/>
@@ -13,54 +25,59 @@
 
 
     <title>
-        <band height="40">
+        <band height="240">
             <staticText>
-                <reportElement x="0" y="0" width="555" height="30"/>
+                <reportElement x="0" y="0" width="802" height="40"/>
                 <textElement textAlignment="Center">
-                    <font size="18" isBold="true"/>
+                    <font size="20" isBold="true"/>
                 </textElement>
                 <text><![CDATA[Reporte de Usuarios]]></text>
             </staticText>
+            <image scaleImage="RetainShape">
+                <reportElement x="286" y="50" width="230" height="180"/>
+                <imageExpression><![CDATA["reports/Logo_Kath_encargosss.png"]]></imageExpression>
+            </image>
+
         </band>
     </title>
 
     <columnHeader>
-        <band height="20">
+        <band height="24">
             <staticText>
-                <reportElement x="0" y="0" width="40" height="20"/>
+                <reportElement style="TableHeader" x="0" y="0" width="60" height="24"/>
                 <text><![CDATA[ID]]></text>
             </staticText>
             <staticText>
-                <reportElement x="50" y="0" width="150" height="20"/>
+                <reportElement style="TableHeader" x="70" y="0" width="200" height="24"/>
                 <text><![CDATA[Nombre]]></text>
             </staticText>
             <staticText>
-                <reportElement x="210" y="0" width="100" height="20"/>
+                <reportElement style="TableHeader" x="280" y="0" width="150" height="24"/>
                 <text><![CDATA[Telefono]]></text>
             </staticText>
             <staticText>
-                <reportElement x="320" y="0" width="200" height="20"/>
+                <reportElement style="TableHeader" x="440" y="0" width="250" height="24"/>
                 <text><![CDATA[Email]]></text>
             </staticText>
         </band>
     </columnHeader>
 
     <detail>
-        <band height="18">
+        <band height="22">
             <textField>
-                <reportElement x="0" y="0" width="40" height="18"/>
+                <reportElement style="TableCell" x="0" y="0" width="60" height="22"/>
                 <textFieldExpression><![CDATA[$F{idUsuario}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="50" y="0" width="150" height="18"/>
+                <reportElement style="TableCell" x="70" y="0" width="200" height="22"/>
                 <textFieldExpression><![CDATA[$F{nombreUsuario}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="210" y="0" width="100" height="18"/>
+                <reportElement style="TableCell" x="280" y="0" width="150" height="22"/>
                 <textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="320" y="0" width="200" height="18"/>
+                <reportElement style="TableCell" x="440" y="0" width="250" height="22"/>
                 <textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
             </textField>
         </band>
