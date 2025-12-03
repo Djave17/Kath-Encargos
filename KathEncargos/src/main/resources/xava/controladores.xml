@@ -38,6 +38,37 @@
             clase="uam.edu.ni.KathEncargos.report.actions.PrintPedidosReportAction"/>
 
 
+    <accion nombre="printDelivery"
+            icono="printer"
+            modo="list"
+            clase="uam.edu.ni.KathEncargos.report.actions.PrintDeliveryReportAction"/>
+
+    <accion nombre="printDetallePedido"
+            icono="printer"
+            modo="list"
+            clase="uam.edu.ni.KathEncargos.report.actions.PrintDetallePedidoReportAction"/>
+
+    <accion nombre="printBebidas"
+            icono="printer"
+            modo="list"
+            clase="uam.edu.ni.KathEncargos.report.actions.PrintBebidasReportAction"/>
+
+    <accion nombre="printPlatillos"
+            icono="printer"
+            modo="list"
+            clase="uam.edu.ni.KathEncargos.report.actions.PrintPlatillosReportAction"/>
+
+    <accion nombre="printGuarniciones"
+            icono="printer"
+            modo="list"
+            clase="uam.edu.ni.KathEncargos.report.actions.PrintGuarnicionesReportAction"/>
+
+    <accion nombre="printPostres"
+            icono="printer"
+            modo="list"
+            clase="uam.edu.ni.KathEncargos.report.actions.PrintPostresReportAction"/>
+
+
 </controlador>
     
 </controladores>

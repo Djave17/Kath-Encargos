@@ -9,6 +9,8 @@
     <field name="nombreUsuario" class="java.lang.String"/>
     <field name="telefono" class="java.lang.String"/>
     <field name="email" class="java.lang.String"/>
+    <field name="direccionReferencia" class="java.lang.String"/>
+
 
     <title>
         <band height="40">

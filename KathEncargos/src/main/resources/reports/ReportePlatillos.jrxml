@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN"
+        "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="ReportePlatillos" pageWidth="595" pageHeight="842" columnWidth="555"
+              leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+
+    <field name="id" class="java.lang.Long"/>
+    <field name="nombre" class="java.lang.String"/>
+    <field name="descripcion" class="java.lang.String"/>
+    <field name="activo" class="java.lang.Boolean"/>
+    <field name="precio" class="java.lang.Double"/>
+    <field name="guarniciones" class="java.util.Collection"/>
+    <field name="bebida" class="uam.edu.ni.KathEncargos.domain.menu.Bebida"/>
+    <field name="postre" class="uam.edu.ni.KathEncargos.domain.menu.Postre"/>
+
+    <title>
+        <band height="40">
+            <staticText>
+                <reportElement x="0" y="0" width="555" height="30"/>
+                <textElement textAlignment="Center">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[REPORTE DE PLATILLOS]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="24">
+            <staticText>
+                <reportElement x="0" y="0" width="50" height="24" backcolor="#F5F5DC" mode="Opaque"/>
+                <text><![CDATA[ID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="55" y="0" width="120" height="24" backcolor="#F5F5DC" mode="Opaque"/>
+                <text><![CDATA[Nombre]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="180" y="0" width="150" height="24" backcolor="#F5F5DC" mode="Opaque"/>
+                <text><![CDATA[Descripción]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="335" y="0" width="50" height="24" backcolor="#F5F5DC" mode="Opaque"/>
+                <text><![CDATA[Activo]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="390" y="0" width="60" height="24" backcolor="#F5F5DC" mode="Opaque"/>
+                <text><![CDATA[Precio]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="455" y="0" width="100" height="24" backcolor="#F5F5DC" mode="Opaque"/>
+                <text><![CDATA[Guarniciones]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="24" width="180" height="24" backcolor="#F5F5DC" mode="Opaque"/>
+                <text><![CDATA[Bebida]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="185" y="24" width="180" height="24" backcolor="#F5F5DC" mode="Opaque"/>
+                <text><![CDATA[Postre]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="48">
+            <textField>
+                <reportElement x="0" y="0" width="50" height="20"/>
+                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="55" y="0" width="120" height="20"/>
+                <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="180" y="0" width="150" height="20"/>
+                <textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="335" y="0" width="50" height="20"/>
+                <textFieldExpression><![CDATA[$F{activo}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="390" y="0" width="60" height="20"/>
+                <textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="455" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{guarniciones}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="24" width="180" height="20"/>
+                <textFieldExpression><![CDATA[$F{bebida}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="185" y="24" width="180" height="20"/>
+                <textFieldExpression><![CDATA[$F{postre}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+</jasperReport>

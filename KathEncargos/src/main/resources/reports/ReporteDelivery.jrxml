@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN"
+        "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="ReporteDelivery" pageWidth="595" pageHeight="842" columnWidth="555"
+              leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+
+    <field name="oid" class="java.lang.String"/>
+    <field name="nombreRepartidor" class="java.lang.String"/>
+    <field name="direccionEntrega" class="java.lang.String"/>
+    <field name="telefonoContacto" class="java.lang.String"/>
+    <field name="horaSalida" class="java.lang.String"/>
+    <field name="horaLlegada" class="java.lang.String"/>
+
+    <title>
+        <band height="40">
+            <staticText>
+                <reportElement x="0" y="0" width="555" height="30"/>
+                <textElement textAlignment="Center">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[REPORTE DE DELIVERIES]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="22">
+            <staticText>
+                <reportElement x="0" y="0" width="70" height="22" backcolor="#F5F5DC" mode="Opaque"/>
+                <text><![CDATA[OID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="75" y="0" width="120" height="22" backcolor="#F5F5DC" mode="Opaque"/>
+                <text><![CDATA[Repartidor]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="200" y="0" width="140" height="22" backcolor="#F5F5DC" mode="Opaque"/>
+                <text><![CDATA[Dirección]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="345" y="0" width="90" height="22" backcolor="#F5F5DC" mode="Opaque"/>
+                <text><![CDATA[Teléfono]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="440" y="0" width="55" height="22" backcolor="#F5F5DC" mode="Opaque"/>
+                <text><![CDATA[Salida]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="500" y="0" width="55" height="22" backcolor="#F5F5DC" mode="Opaque"/>
+                <text><![CDATA[Llegada]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="70" height="20"/>
+                <textFieldExpression><![CDATA[$F{oid}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="75" y="0" width="120" height="20"/>
+                <textFieldExpression><![CDATA[$F{nombreRepartidor}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="200" y="0" width="140" height="20"/>
+                <textFieldExpression><![CDATA[$F{direccionEntrega}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="345" y="0" width="90" height="20"/>
+                <textFieldExpression><![CDATA[$F{telefonoContacto}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="440" y="0" width="55" height="20"/>
+                <textFieldExpression><![CDATA[$F{horaSalida}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="500" y="0" width="55" height="20"/>
+                <textFieldExpression><![CDATA[$F{horaLlegada}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+</jasperReport>
