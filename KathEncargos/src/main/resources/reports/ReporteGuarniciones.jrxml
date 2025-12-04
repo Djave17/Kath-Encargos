@@ -18,12 +18,12 @@
     </box>
 </style>
 
-<field name="idGuarnicion" class="java.lang.Long"/>
-<field name="nombreGuarnicion" class="java.lang.String"/>
-<field name="precio" class="java.math.BigDecimal"/>
-<field name="activo" class="java.lang.Boolean"/>
-<field name="categoriaGuarnicion" class="uam.edu.ni.KathEncargos.domain.catalogos.CategoriaGuarnicion"/>
-<field name="platillos" class="java.util.Collection"/>
+    <field name="idGuarnicion" class="java.lang.Long"/>
+    <field name="nombreGuarnicion" class="java.lang.String"/>
+    <field name="precio" class="java.math.BigDecimal"/>
+    <field name="activo" class="java.lang.Boolean"/>
+    <field name="categoriaGuarnicion.nombreCategoria" class="java.lang.String"/>
+    <field name="platillos" class="java.util.Collection"/>
 
 <title>
     <band height="240">
@@ -90,11 +90,11 @@
         </textField>
         <textField>
             <reportElement style="TableCell" x="510" y="0" width="292" height="22"/>
-            <textFieldExpression><![CDATA[$F{categoriaGuarnicion}]]></textFieldExpression>
+            <textFieldExpression><![CDATA[$F{categoriaGuarnicion.nombreCategoria}]]></textFieldExpression>
         </textField>
         <textField>
             <reportElement style="TableCell" x="0" y="24" width="802" height="22"/>
-            <textFieldExpression><![CDATA[$F{platillos}]]></textFieldExpression>
+            <textFieldExpression><![CDATA[$F{platillos} == null ? "" : ((java.util.Collection)$F{platillos}).stream().map(p -> ((uam.edu.ni.KathEncargos.domain.menu.Platillo) p).getNombre()).collect(java.util.stream.Collectors.joining(", "))]]></textFieldExpression>
         </textField>
     </band>
 </detail>

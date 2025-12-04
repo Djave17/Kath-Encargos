@@ -18,12 +18,12 @@
     </box>
 </style>
 
-<field name="idDetallePedido" class="java.lang.Long"/>
-<field name="cantidad" class="java.lang.Integer"/>
-<field name="precioUnitario" class="java.math.BigDecimal"/>
-<field name="subtotal" class="java.math.BigDecimal"/>
-<field name="platillo" class="uam.edu.ni.KathEncargos.domain.menu.Platillo"/>
-<field name="pedido" class="uam.edu.ni.KathEncargos.domain.pedidos.Pedido"/>
+    <field name="idDetallePedido" class="java.lang.Long"/>
+    <field name="cantidad" class="java.lang.Integer"/>
+    <field name="precioUnitario" class="java.math.BigDecimal"/>
+    <field name="subtotal" class="java.math.BigDecimal"/>
+    <field name="platillo.nombre" class="java.lang.String"/>
+    <field name="pedido.idPedido" class="java.lang.Long"/>
 
 <title>
 
@@ -62,7 +62,7 @@
         </staticText>
         <staticText>
             <reportElement style="TableHeader" x="480" y="0" width="180" height="24"/>
-            <text><![CDATA[Platillo]]></text>
+            <text><![CDATA[Platillo.nombre]]></text>
         </staticText>
         <staticText>
             <reportElement style="TableHeader" x="670" y="0" width="132" height="24"/>
@@ -91,11 +91,11 @@
         </textField>
         <textField>
             <reportElement style="TableCell" x="480" y="0" width="180" height="22"/>
-            <textFieldExpression><![CDATA[$F{platillo}]]></textFieldExpression>
+            <textFieldExpression><![CDATA[$F{platillo.nombre}]]></textFieldExpression>
         </textField>
         <textField>
             <reportElement style="TableCell" x="670" y="0" width="132" height="22"/>
-            <textFieldExpression><![CDATA[$F{pedido}]]></textFieldExpression>
+            <textFieldExpression><![CDATA[$F{pedido.idPedido}]]></textFieldExpression>
         </textField>
     </band>
 </detail>
