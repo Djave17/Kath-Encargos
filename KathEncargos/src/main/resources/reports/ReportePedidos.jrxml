@@ -2,101 +2,91 @@
 <!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN"
         "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
 
-<jasperReport name="ReportePedidos" orientation="Landscape"
-              pageWidth="842" pageHeight="595" columnWidth="802"
+<jasperReport name="ReportePedidos" orientation="Landscape" pageWidth="842" pageHeight="595" columnWidth="802"
               leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 
-    <!-- Estilos de cabecera y celdas, igual que ReporteUsuarios -->
-    <style name="TableHeader" mode="Opaque" backcolor="#E6E6E6">
-        <box>
-            <pen lineWidth="1.0" lineColor="#000000"/>
-        </box>
-    </style>
+<!-- Campos simples de Pedido -->
+<style name="TableHeader" mode="Opaque" backcolor="#E6E6E6">
+    <box>
+        <pen lineWidth="1.0" lineColor="#000000"/>
+    </box>
+</style>
 
-    <style name="TableCell">
-        <box>
-            <pen lineWidth="1.0" lineColor="#000000"/>
-        </box>
-    </style>
+<style name="TableCell">
+    <box>
+        <pen lineWidth="1.0" lineColor="#000000"/>
+    </box>
+</style>
 
-    <!-- Campos simples de Pedido -->
-    <field name="idPedido" class="java.lang.Long"/>
-    <field name="fechaHoraCreacion" class="java.time.LocalDateTime"/>
-    <field name="totalProductos" class="java.lang.Integer"/>
-    <field name="montoTotal" class="java.math.BigDecimal"/>
+<field name="idPedido" class="java.lang.Long"/>
+<field name="fechaHoraCreacion" class="java.time.LocalDateTime"/>
+<field name="totalProductos" class="java.lang.Integer"/>
+<field name="montoTotal" class="java.math.BigDecimal"/>
 
-    <!-- Título con logo -->
-    <title>
-        <band height="240">
-            <staticText>
-                <reportElement x="0" y="0" width="802" height="40"/>
-                <textElement textAlignment="Center">
-                    <font size="20" isBold="true"/>
-                </textElement>
-                <text><![CDATA[Reporte de Pedidos]]></text>
-            </staticText>
+<title>
+    <band height="240">
+        <staticText>
+            <reportElement x="0" y="0" width="802" height="40"/>
+            <textElement textAlignment="Center">
+                <font size="20" isBold="true"/>
+            </textElement>
+            <text><![CDATA[Reporte de Pedidos]]></text>
+        </staticText>
+        <image scaleImage="RetainShape">
+            <reportElement x="286" y="50" width="230" height="180"/>
+            <imageExpression><![CDATA["reports/Logo_Kath_encargosss.png"]]></imageExpression>
+        </image>
+    </band>
+</title>
 
-            <image scaleImage="RetainShape">
-                <reportElement x="286" y="50" width="230" height="180"/>
-                <!-- mismo logo que en los otros reportes -->
-                <imageExpression><![CDATA["reports/Logo_Kath_encargosss.png"]]></imageExpression>
-            </image>
-        </band>
-    </title>
+<columnHeader>
+    <band height="24">
+        <staticText>
+            <reportElement style="TableHeader" x="0" y="0" width="70" height="24"/>
+            <text><![CDATA[ID]]></text>
+        </staticText>
 
-    <!-- Encabezado de la tabla -->
-    <columnHeader>
-        <band height="24">
+        <staticText>
+            <reportElement style="TableHeader" x="80" y="0" width="240" height="24"/>
+            <text><![CDATA[Fecha]]></text>
+        </staticText>
 
-            <staticText>
-                <reportElement style="TableHeader" x="0" y="0" width="60" height="24"/>
-                <text><![CDATA[ID]]></text>
-            </staticText>
+        <staticText>
+            <reportElement style="TableHeader" x="330" y="0" width="140" height="24"/>
+            <text><![CDATA[Items]]></text>
+        </staticText>
 
-            <staticText>
-                <reportElement style="TableHeader" x="70" y="0" width="250" height="24"/>
-                <text><![CDATA[Fecha creación]]></text>
-            </staticText>
+        <staticText>
+            <reportElement style="TableHeader" x="480" y="0" width="322" height="24"/>
+            <text><![CDATA[Monto total]]></text>
+        </staticText>
 
-            <staticText>
-                <reportElement style="TableHeader" x="320" y="0" width="120" height="24"/>
-                <text><![CDATA[Items]]></text>
-            </staticText>
+    </band>
+</columnHeader>
 
-            <staticText>
-                <reportElement style="TableHeader" x="440" y="0" width="150" height="24"/>
-                <text><![CDATA[Monto total]]></text>
-            </staticText>
+<detail>
+    <band height="22">
+        <textField>
+            <reportElement style="TableCell" x="0" y="0" width="70" height="22"/>
+            <textFieldExpression><![CDATA[$F{idPedido}]]></textFieldExpression>
+        </textField>
 
-        </band>
-    </columnHeader>
+        <textField>
+            <reportElement style="TableCell" x="80" y="0" width="240" height="22"/>
+            <textFieldExpression><![CDATA[$F{fechaHoraCreacion}]]></textFieldExpression>
+        </textField>
 
-    <!-- Filas de datos -->
-    <detail>
-        <band height="22">
+        <textField>
+            <reportElement style="TableCell" x="330" y="0" width="140" height="22"/>
+            <textFieldExpression><![CDATA[$F{totalProductos}]]></textFieldExpression>
+        </textField>
 
-            <textField>
-                <reportElement style="TableCell" x="0" y="0" width="60" height="22"/>
-                <textFieldExpression><![CDATA[$F{idPedido}]]></textFieldExpression>
-            </textField>
+        <textField>
+            <reportElement style="TableCell" x="480" y="0" width="322" height="22"/>
+            <textFieldExpression><![CDATA[$F{montoTotal}]]></textFieldExpression>
+        </textField>
 
-            <textField>
-                <reportElement style="TableCell" x="70" y="0" width="250" height="22"/>
-                <!-- imprime directamente el LocalDateTime; si luego quieres formato, lo cambiamos -->
-                <textFieldExpression><![CDATA[$F{fechaHoraCreacion}]]></textFieldExpression>
-            </textField>
-
-            <textField>
-                <reportElement style="TableCell" x="320" y="0" width="120" height="22"/>
-                <textFieldExpression><![CDATA[$F{totalProductos}]]></textFieldExpression>
-            </textField>
-
-            <textField>
-                <reportElement style="TableCell" x="440" y="0" width="150" height="22"/>
-                <textFieldExpression><![CDATA[$F{montoTotal}]]></textFieldExpression>
-            </textField>
-
-        </band>
-    </detail>
+    </band>
+</detail>
 
 </jasperReport>
