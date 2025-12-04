@@ -2,9 +2,24 @@
 <!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN"
         "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
 
-<jasperReport name="ReportePlatillos" pageWidth="595" pageHeight="842" columnWidth="555"
+<jasperReport name="ReportePlatillos" orientation="Landscape"
+              pageWidth="842" pageHeight="595" columnWidth="802"
               leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 
+    <!-- Estilos iguales a ReporteUsuarios -->
+    <style name="TableHeader" mode="Opaque" backcolor="#E6E6E6">
+        <box>
+            <pen lineWidth="1.0" lineColor="#000000"/>
+        </box>
+    </style>
+
+    <style name="TableCell">
+        <box>
+            <pen lineWidth="1.0" lineColor="#000000"/>
+        </box>
+    </style>
+
+    <!-- Campos de Platillo -->
     <field name="id" class="java.lang.Long"/>
     <field name="nombre" class="java.lang.String"/>
     <field name="descripcion" class="java.lang.String"/>
@@ -14,89 +29,123 @@
     <field name="bebida" class="uam.edu.ni.KathEncargos.domain.menu.Bebida"/>
     <field name="postre" class="uam.edu.ni.KathEncargos.domain.menu.Postre"/>
 
+    <!-- Título con logo -->
     <title>
-        <band height="40">
+        <band height="240">
             <staticText>
-                <reportElement x="0" y="0" width="555" height="30"/>
+                <reportElement x="0" y="0" width="802" height="40"/>
                 <textElement textAlignment="Center">
-                    <font size="18" isBold="true"/>
+                    <font size="20" isBold="true"/>
                 </textElement>
-                <text><![CDATA[REPORTE DE PLATILLOS]]></text>
+                <text><![CDATA[Reporte de Platillos]]></text>
             </staticText>
+
+            <image scaleImage="RetainShape">
+                <reportElement x="286" y="50" width="230" height="180"/>
+                <!-- mismo logo que en usuarios -->
+                <imageExpression><![CDATA["reports/Logo_Kath_encargosss.png"]]></imageExpression>
+            </image>
         </band>
     </title>
 
+    <!-- Encabezado (sin ID, con bordes) -->
     <columnHeader>
-        <band height="48">
+        <band height="24">
             <staticText>
-                <reportElement x="0" y="0" width="50" height="24" backcolor="#F5F5DC" mode="Opaque"/>
-                <text><![CDATA[ID]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="55" y="0" width="120" height="24" backcolor="#F5F5DC" mode="Opaque"/>
+                <reportElement style="TableHeader" x="0" y="0" width="150" height="24"/>
                 <text><![CDATA[Nombre]]></text>
             </staticText>
+
             <staticText>
-                <reportElement x="180" y="0" width="150" height="24" backcolor="#F5F5DC" mode="Opaque"/>
+                <reportElement style="TableHeader" x="150" y="0" width="230" height="24"/>
                 <text><![CDATA[Descripción]]></text>
             </staticText>
+
             <staticText>
-                <reportElement x="335" y="0" width="50" height="24" backcolor="#F5F5DC" mode="Opaque"/>
-                <text><![CDATA[Activo]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="390" y="0" width="60" height="24" backcolor="#F5F5DC" mode="Opaque"/>
+                <reportElement style="TableHeader" x="380" y="0" width="80" height="24"/>
                 <text><![CDATA[Precio]]></text>
             </staticText>
+
             <staticText>
-                <reportElement x="455" y="0" width="100" height="24" backcolor="#F5F5DC" mode="Opaque"/>
+                <reportElement style="TableHeader" x="460" y="0" width="70" height="24"/>
+                <text><![CDATA[Activo]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement style="TableHeader" x="530" y="0" width="100" height="24"/>
                 <text><![CDATA[Guarniciones]]></text>
             </staticText>
+
             <staticText>
-                <reportElement x="0" y="24" width="180" height="24" backcolor="#F5F5DC" mode="Opaque"/>
+                <reportElement style="TableHeader" x="630" y="0" width="90" height="24"/>
                 <text><![CDATA[Bebida]]></text>
             </staticText>
+
             <staticText>
-                <reportElement x="185" y="24" width="180" height="24" backcolor="#F5F5DC" mode="Opaque"/>
+                <reportElement style="TableHeader" x="720" y="0" width="82" height="24"/>
                 <text><![CDATA[Postre]]></text>
             </staticText>
         </band>
     </columnHeader>
 
+    <!-- Filas de datos -->
     <detail>
-        <band height="48">
+        <band height="22">
+
+            <!-- Nombre -->
             <textField>
-                <reportElement x="0" y="0" width="50" height="20"/>
-                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="55" y="0" width="120" height="20"/>
+                <reportElement style="TableCell" x="0" y="0" width="150" height="22"/>
                 <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
             </textField>
+
+            <!-- Descripción -->
             <textField>
-                <reportElement x="180" y="0" width="150" height="20"/>
+                <reportElement style="TableCell" x="150" y="0" width="230" height="22"/>
                 <textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
             </textField>
+
+            <!-- Precio -->
             <textField>
-                <reportElement x="335" y="0" width="50" height="20"/>
-                <textFieldExpression><![CDATA[$F{activo}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="390" y="0" width="60" height="20"/>
+                <reportElement style="TableCell" x="380" y="0" width="80" height="22"/>
                 <textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
             </textField>
+
+            <!-- Activo -->
             <textField>
-                <reportElement x="455" y="0" width="100" height="20"/>
-                <textFieldExpression><![CDATA[$F{guarniciones}]]></textFieldExpression>
+                <reportElement style="TableCell" x="460" y="0" width="70" height="22"/>
+                <textFieldExpression><![CDATA[$F{activo}]]></textFieldExpression>
             </textField>
+
+            <!-- Guarniciones: mostramos cantidad, no el objeto feo -->
             <textField>
-                <reportElement x="0" y="24" width="180" height="20"/>
-                <textFieldExpression><![CDATA[$F{bebida}]]></textFieldExpression>
+                <reportElement style="TableCell" x="530" y="0" width="100" height="22"/>
+                <textFieldExpression><![CDATA[
+                    $F{guarniciones} == null
+                        ? ""
+                        : $F{guarniciones}.size() + " guarniciones"
+                ]]></textFieldExpression>
             </textField>
+
+            <!-- Bebida: mostramos el nombre, no el objeto -->
             <textField>
-                <reportElement x="185" y="24" width="180" height="20"/>
-                <textFieldExpression><![CDATA[$F{postre}]]></textFieldExpression>
+                <reportElement style="TableCell" x="630" y="0" width="90" height="22"/>
+                <textFieldExpression><![CDATA[
+                    $F{bebida} == null
+                        ? ""
+                        : $F{bebida}.getNombre()
+                ]]></textFieldExpression>
             </textField>
+
+            <!-- Postre: también el nombre -->
+            <textField>
+                <reportElement style="TableCell" x="720" y="0" width="82" height="22"/>
+                <textFieldExpression><![CDATA[
+                    $F{postre} == null
+                        ? ""
+                        : $F{postre}.getNombre()
+                ]]></textFieldExpression>
+            </textField>
+
         </band>
     </detail>
 
