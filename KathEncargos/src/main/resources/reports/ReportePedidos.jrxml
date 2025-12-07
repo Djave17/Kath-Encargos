@@ -24,7 +24,7 @@
     <field name="montoTotal" class="java.math.BigDecimal"/>
 
     <title>
-        <band height="240">
+        <band height="100">
             <staticText>
                 <reportElement x="0" y="0" width="802" height="40"/>
                 <textElement textAlignment="Center">
