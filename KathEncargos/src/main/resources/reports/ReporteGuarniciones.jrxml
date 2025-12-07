@@ -6,15 +6,15 @@
 <jasperReport name="ReporteGuarniciones" orientation="Landscape" pageWidth="842" pageHeight="595" columnWidth="802"
               leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 
-    <style name="TableHeader" mode="Opaque" backcolor="#E6E6E6">
-        <box>
-            <pen lineWidth="1.0" lineColor="#000000"/>
+    <style name="TableHeader" mode="Opaque" backcolor="#f4f4f4">
+        <box leftPadding="6" rightPadding="6" topPadding="4" bottomPadding="4">
+            <pen lineWidth="0.5" lineColor="#9e9e9e"/>
         </box>
     </style>
 
     <style name="TableCell">
-        <box>
-            <pen lineWidth="1.0" lineColor="#000000"/>
+        <box leftPadding="8" rightPadding="8" topPadding="6" bottomPadding="6">
+            <pen lineWidth="0.5" lineColor="#c5c5c5"/>
         </box>
     </style>
 
@@ -24,75 +24,87 @@
     <field name="platillos" class="java.util.Collection"/>
 
     <title>
-        <band height="100">
+        <band height="90">
+            <image scaleImage="RetainShape">
+                <reportElement x="0" y="0" width="70" height="70"/>
+                <imageExpression><![CDATA["reports/Logo_Kath_encargosss.png"]]></imageExpression>
+            </image>
+
             <staticText>
-                <reportElement x="0" y="0" width="802" height="40"/>
-                <textElement textAlignment="Center">
+                <reportElement x="80" y="8" width="480" height="30"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
                     <font size="20" isBold="true"/>
                 </textElement>
                 <text><![CDATA[Reporte de Guarniciones]]></text>
             </staticText>
 
+            <staticText>
+                <reportElement x="80" y="40" width="480" height="18"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="10" isItalic="true"/>
+                </textElement>
+                <text><![CDATA[Listado de guarniciones con su categoría y precio.]]></text>
+            </staticText>
+
             <textField>
-                <reportElement x="562" y="0" width="240" height="20"/>
+                <reportElement x="562" y="8" width="240" height="18"/>
                 <textElement textAlignment="Right" verticalAlignment="Middle">
                     <font size="10" isBold="true"/>
                 </textElement>
                 <textFieldExpression><![CDATA["Fecha de generación: " + new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
             </textField>
 
-            <image scaleImage="RetainShape">
-                <reportElement x="0" y="0" width="80" height="80"/>
-                <imageExpression><![CDATA["reports/Logo_Kath_encargosss.png"]]></imageExpression>
-            </image>
         </band>
     </title>
 
     <columnHeader>
-        <band height="48">
+        <band height="40">
             <staticText>
-                <reportElement style="TableHeader" x="0" y="0" width="260" height="24"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement style="TableHeader" x="0" y="0" width="260" height="40"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
                 <text><![CDATA[Nombre]]></text>
             </staticText>
             <staticText>
-                <reportElement style="TableHeader" x="260" y="0" width="422" height="24"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement style="TableHeader" x="260" y="0" width="422" height="40"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
                 <text><![CDATA[Categoría]]></text>
             </staticText>
             <staticText>
-                <reportElement style="TableHeader" x="682" y="0" width="120" height="24"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement style="TableHeader" x="682" y="0" width="120" height="40"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
                 <text><![CDATA[Precio]]></text>
             </staticText>
-            <staticText>
-                <reportElement style="TableHeader" x="0" y="24" width="802" height="24"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
-                <text><![CDATA[Platillos]]></text>
-            </staticText>
+
         </band>
     </columnHeader>
 
     <detail>
-        <band height="48">
+        <band height="56">
             <textField>
-                <reportElement style="TableCell" x="0" y="0" width="260" height="22"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement style="TableCell" x="0" y="0" width="260" height="28"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{nombreGuarnicion}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement style="TableCell" x="260" y="0" width="422" height="22"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement style="TableCell" x="260" y="0" width="422" height="28"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{categoriaGuarnicion.nombreCategoria}]]></textFieldExpression>
             </textField>
-            <textField>
-                <reportElement style="TableCell" x="682" y="0" width="120" height="22"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+
+            <textField pattern="$ #,##0.00">
+                <reportElement style="TableCell" x="682" y="0" width="120" height="28"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement style="TableCell" x="0" y="24" width="802" height="22"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement style="TableCell" x="0" y="28" width="802" height="28"/>
+                <textElement textAlignment="Left" verticalAlignment="Top"/>
                 <textFieldExpression><![CDATA[$F{platillos} == null ? "" : ((java.util.Collection)$F{platillos}).stream().map(p -> ((uam.edu.ni.KathEncargos.domain.menu.Platillo) p).getNombre()).collect(java.util.stream.Collectors.joining(", "))]]></textFieldExpression>
             </textField>
         </band>
