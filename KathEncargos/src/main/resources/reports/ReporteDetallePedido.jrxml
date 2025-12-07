@@ -31,7 +31,7 @@
                 <textElement textAlignment="Center">
                     <font size="20" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Repporte Detalles de Pedido]]></text>
+                <text><![CDATA[Reporte Detalles de Pedido]]></text>
             </staticText>
 
             <textField>
