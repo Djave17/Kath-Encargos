@@ -53,18 +53,22 @@
         <band height="24">
             <staticText>
                 <reportElement style="TableHeader" x="0" y="0" width="360" height="24"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <text><![CDATA[Platillo]]></text>
             </staticText>
             <staticText>
                 <reportElement style="TableHeader" x="360" y="0" width="120" height="24"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <text><![CDATA[Cantidad]]></text>
             </staticText>
             <staticText>
                 <reportElement style="TableHeader" x="480" y="0" width="150" height="24"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <text><![CDATA[Precio unit.]]></text>
             </staticText>
             <staticText>
                 <reportElement style="TableHeader" x="630" y="0" width="172" height="24"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <text><![CDATA[Subtotal]]></text>
             </staticText>
         </band>
@@ -74,18 +78,22 @@
         <band height="22">
             <textField>
                 <reportElement style="TableCell" x="0" y="0" width="360" height="22"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{platillo.nombre}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement style="TableCell" x="360" y="0" width="120" height="22"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement style="TableCell" x="480" y="0" width="150" height="22"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{precioUnitario}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement style="TableCell" x="630" y="0" width="172" height="22"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
             </textField>
 

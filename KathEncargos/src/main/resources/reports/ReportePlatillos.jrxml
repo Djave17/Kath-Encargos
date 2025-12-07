@@ -27,7 +27,7 @@
     <field name="bebida" class="uam.edu.ni.KathEncargos.domain.menu.Bebida"/>
     <field name="postre" class="uam.edu.ni.KathEncargos.domain.menu.Postre"/>
 
-    <!-- Título con logo -->
+    <!-- Título con el de katchencargos logo -->
     <title>
         <band height="100">
             <staticText>
@@ -54,36 +54,42 @@
         </band>
     </title>
 
-    <!-- Encabezado (sin ID, con bordes) -->
+    <!-- Encabezado  -->
     <columnHeader>
         <band height="24">
             <staticText>
                 <reportElement style="TableHeader" x="0" y="0" width="150" height="24"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <text><![CDATA[Nombre]]></text>
             </staticText>
 
             <staticText>
                 <reportElement style="TableHeader" x="150" y="0" width="260" height="24"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <text><![CDATA[Descripción]]></text>
             </staticText>
 
             <staticText>
                 <reportElement style="TableHeader" x="410" y="0" width="120" height="24"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <text><![CDATA[Guarniciones]]></text>
             </staticText>
 
             <staticText>
                 <reportElement style="TableHeader" x="530" y="0" width="110" height="24"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <text><![CDATA[Bebida]]></text>
             </staticText>
 
             <staticText>
                 <reportElement style="TableHeader" x="640" y="0" width="90" height="24"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <text><![CDATA[Postre]]></text>
             </staticText>
 
             <staticText>
                 <reportElement style="TableHeader" x="730" y="0" width="72" height="24"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <text><![CDATA[Precio]]></text>
             </staticText>
         </band>
@@ -96,18 +102,21 @@
             <!-- Nombre -->
             <textField>
                 <reportElement style="TableCell" x="0" y="0" width="150" height="22"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
             </textField>
 
             <!-- Descripción -->
             <textField>
                 <reportElement style="TableCell" x="150" y="0" width="260" height="22"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
             </textField>
 
             <!-- Guarniciones: mostramos cantidad, no el objeto feo -->
             <textField>
                 <reportElement style="TableCell" x="410" y="0" width="120" height="22"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[
                     $F{guarniciones} == null
                         ? ""
@@ -115,9 +124,10 @@
                 ]]></textFieldExpression>
             </textField>
 
-            <!-- Bebida: mostramos el nombre, no el objeto -->
+            <!-- Bebida: mostramos el nombre -->
             <textField>
                 <reportElement style="TableCell" x="530" y="0" width="110" height="22"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[
                     $F{bebida} == null
                         ? ""
@@ -128,6 +138,7 @@
             <!-- Postre: también el nombre -->
             <textField>
                 <reportElement style="TableCell" x="640" y="0" width="90" height="22"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[
                     $F{postre} == null
                         ? ""
@@ -138,6 +149,7 @@
             <!-- Precio -->
             <textField>
                 <reportElement style="TableCell" x="730" y="0" width="72" height="22"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
             </textField>
 

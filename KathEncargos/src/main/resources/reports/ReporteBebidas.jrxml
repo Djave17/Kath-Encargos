@@ -53,14 +53,17 @@
     <band height="24">
         <staticText>
             <reportElement style="TableHeader" x="0" y="0" width="200" height="24"/>
+            <textElement textAlignment="Center" verticalAlignment="Middle"/>
             <text><![CDATA[Nombre]]></text>
         </staticText>
         <staticText>
             <reportElement style="TableHeader" x="200" y="0" width="420" height="24"/>
+            <textElement textAlignment="Center" verticalAlignment="Middle"/>
             <text><![CDATA[Descripción]]></text>
         </staticText>
         <staticText>
             <reportElement style="TableHeader" x="620" y="0" width="182" height="24"/>
+            <textElement textAlignment="Center" verticalAlignment="Middle"/>
             <text><![CDATA[Precio]]></text>
         </staticText>
     </band>
@@ -70,14 +73,17 @@
     <band height="22">
         <textField>
             <reportElement style="TableCell" x="0" y="0" width="200" height="22"/>
+            <textElement textAlignment="Center" verticalAlignment="Middle"/>
             <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
         </textField>
         <textField>
             <reportElement style="TableCell" x="200" y="0" width="420" height="22"/>
+            <textElement textAlignment="Center" verticalAlignment="Middle"/>
             <textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
         </textField>
         <textField>
             <reportElement style="TableCell" x="620" y="0" width="182" height="22"/>
+            <textElement textAlignment="Center" verticalAlignment="Middle"/>
             <textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
         </textField>
     </band>
