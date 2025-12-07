@@ -16,12 +16,10 @@
             <pen lineWidth="1.0" lineColor="#000000"/>
         </box>
     </style>
-    <field name="idUsuario" class="java.lang.Long"/>
     <field name="nombreUsuario" class="java.lang.String"/>
     <field name="telefono" class="java.lang.String"/>
     <field name="email" class="java.lang.String"/>
     <field name="direccionReferencia" class="java.lang.String"/>
-    <field name="activo" class="java.lang.Boolean"/>
     <field name="fechaRegistro" class="java.util.Date"/>
     <field name="rol.nombre" class="java.lang.String"/>
 
@@ -53,23 +51,19 @@
     <columnHeader>
         <band height="24">
             <staticText>
-                <reportElement style="TableHeader" x="0" y="0" width="50" height="24"/>
-                <text><![CDATA[ID]]></text>
-            </staticText>
-            <staticText>
-                <reportElement style="TableHeader" x="60" y="0" width="140" height="24"/>
+                <reportElement style="TableHeader" x="0" y="0" width="160" height="24"/>
                 <text><![CDATA[Nombre]]></text>
             </staticText>
             <staticText>
-                <reportElement style="TableHeader" x="210" y="0" width="100" height="24"/>
-                <text><![CDATA[Teléfono]]></text>
-            </staticText>
-            <staticText>
-                <reportElement style="TableHeader" x="320" y="0" width="140" height="24"/>
+                <reportElement style="TableHeader" x="160" y="0" width="170" height="24"/>
                 <text><![CDATA[Email]]></text>
             </staticText>
             <staticText>
-                <reportElement style="TableHeader" x="470" y="0" width="160" height="24"/>
+                <reportElement style="TableHeader" x="330" y="0" width="110" height="24"/>
+                <text><![CDATA[Teléfono]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="TableHeader" x="440" y="0" width="200" height="24"/>
                 <text><![CDATA[Dirección]]></text>
             </staticText>
             <staticText>
@@ -77,11 +71,7 @@
                 <text><![CDATA[Rol]]></text>
             </staticText>
             <staticText>
-                <reportElement style="TableHeader" x="730" y="0" width="50" height="24"/>
-                <text><![CDATA[Activo]]></text>
-            </staticText>
-            <staticText>
-                <reportElement style="TableHeader" x="790" y="0" width="82" height="24"/>
+                <reportElement style="TableHeader" x="720" y="0" width="82" height="24"/>
                 <text><![CDATA[Registro]]></text>
             </staticText>
         </band>
@@ -90,35 +80,27 @@
     <detail>
         <band height="22">
             <textField>
-                <reportElement style="TableCell" x="0" y="0" width="50" height="22"/>
-                <textFieldExpression><![CDATA[$F{idUsuario}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement style="TableCell" x="60" y="0" width="140" height="22"/>
+                <reportElement style="TableCell" x="0" y="0" width="160" height="22"/>
                 <textFieldExpression><![CDATA[$F{nombreUsuario}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement style="TableCell" x="210" y="0" width="100" height="22"/>
-                <textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement style="TableCell" x="320" y="0" width="140" height="22"/>
+                <reportElement style="TableCell" x="160" y="0" width="170" height="22"/>
                 <textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement style="TableCell" x="470" y="0" width="160" height="22"/>
+                <reportElement style="TableCell" x="330" y="0" width="110" height="22"/>
+                <textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="TableCell" x="440" y="0" width="200" height="22"/>
                 <textFieldExpression><![CDATA[$F{direccionReferencia}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement style="TableCell" x="640" y="0" width="80" height="22"/>
                 <textFieldExpression><![CDATA[$F{rol.nombre}]]></textFieldExpression>
             </textField>
-            <textField>
-                <reportElement style="TableCell" x="730" y="0" width="50" height="22"/>
-                <textFieldExpression><![CDATA[$F{activo}]]></textFieldExpression>
-            </textField>
             <textField pattern="dd/MM/yyyy">
-                <reportElement style="TableCell" x="790" y="0" width="82" height="22"/>
+                <reportElement style="TableCell" x="720" y="0" width="82" height="22"/>
                 <textFieldExpression><![CDATA[$F{fechaRegistro}]]></textFieldExpression>
             </textField>
         </band>

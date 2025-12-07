@@ -23,14 +23,17 @@ public class PrintUsuariosReportActions extends JasperReportBaseAction {
 
         // Obtener todos los usuarios
         List<Usuario> usuarios = em.createQuery("from Usuario", Usuario.class).getResultList();
-
+        // JRBeanCollectionDataSource convierte la lista en un datasource válido
         return new JRBeanCollectionDataSource(usuarios);
     }
 
     @Override
-    protected String getJRXML() throws Exception {
+    protected String getJRXML() throws Exception { //Indica cuál archivo JRXML se va a usar para generar el reporte.
         return "ReporteUsuarios.jrxml"; // nombre del jrxml
     }
+
+    //Permite pasar parámetros al reporte JasperReports.
+            // Si el reporte no necesita parámetros, retornamos null.
 
     @Override
     protected Map getParameters() throws Exception {
