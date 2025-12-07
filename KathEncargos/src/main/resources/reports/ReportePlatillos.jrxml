@@ -6,20 +6,18 @@
               pageWidth="842" pageHeight="595" columnWidth="802"
               leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 
-    <!-- Estilos iguales a ReporteUsuarios -->
-    <style name="TableHeader" mode="Opaque" backcolor="#E6E6E6">
-        <box>
-            <pen lineWidth="1.0" lineColor="#000000"/>
+    <style name="TableHeader" mode="Opaque" backcolor="#f4f4f4">
+        <box leftPadding="6" rightPadding="6" topPadding="4" bottomPadding="4">
+            <pen lineWidth="0.5" lineColor="#9e9e9e"/>
         </box>
     </style>
 
     <style name="TableCell">
-        <box>
-            <pen lineWidth="1.0" lineColor="#000000"/>
+        <box leftPadding="8" rightPadding="8" topPadding="6" bottomPadding="6">
+            <pen lineWidth="0.5" lineColor="#c5c5c5"/>
         </box>
     </style>
 
-    <!-- Campos de Platillo -->
     <field name="nombre" class="java.lang.String"/>
     <field name="descripcion" class="java.lang.String"/>
     <field name="precio" class="java.lang.Double"/>
@@ -27,129 +25,128 @@
     <field name="bebida" class="uam.edu.ni.KathEncargos.domain.menu.Bebida"/>
     <field name="postre" class="uam.edu.ni.KathEncargos.domain.menu.Postre"/>
 
-    <!-- Título con el de katchencargos logo -->
     <title>
-        <band height="100">
+        <band height="90">
+            <image scaleImage="RetainShape">
+                <reportElement x="0" y="0" width="70" height="70"/>
+                <imageExpression><![CDATA["reports/Logo_Kath_encargosss.png"]]></imageExpression>
+            </image>
+
             <staticText>
-                <reportElement x="0" y="0" width="802" height="40"/>
-                <textElement textAlignment="Center">
+                <reportElement x="80" y="8" width="480" height="30"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
                     <font size="20" isBold="true"/>
                 </textElement>
                 <text><![CDATA[Reporte de Platillos]]></text>
             </staticText>
 
+            <staticText>
+                <reportElement x="80" y="40" width="480" height="18"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="10" isItalic="true"/>
+                </textElement>
+                <text><![CDATA[Platillos con guarniciones, bebidas, postres y precio.]]></text>
+            </staticText>
+
             <textField>
-                <reportElement x="562" y="0" width="240" height="20"/>
+                <reportElement x="562" y="8" width="240" height="18"/>
                 <textElement textAlignment="Right" verticalAlignment="Middle">
                     <font size="10" isBold="true"/>
                 </textElement>
-                <textFieldExpression><![CDATA["Fecha de generación: " + new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Fecha de generación: " + new java.text.SimpleDateFormat("dd/MM/yyyy").format(new
+java.util.Date())]]></textFieldExpression>
             </textField>
 
-            <image scaleImage="RetainShape">
-                <reportElement x="0" y="0" width="80" height="80"/>
-                <!-- mismo logo que en usuarios -->
-                <imageExpression><![CDATA["reports/Logo_Kath_encargosss.png"]]></imageExpression>
-            </image>
         </band>
     </title>
 
-    <!-- Encabezado  -->
     <columnHeader>
-        <band height="24">
+        <band height="40">
             <staticText>
-                <reportElement style="TableHeader" x="0" y="0" width="150" height="24"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement style="TableHeader" x="0" y="0" width="150" height="40"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
                 <text><![CDATA[Nombre]]></text>
             </staticText>
 
             <staticText>
-                <reportElement style="TableHeader" x="150" y="0" width="260" height="24"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement style="TableHeader" x="150" y="0" width="260" height="40"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
                 <text><![CDATA[Descripción]]></text>
             </staticText>
 
             <staticText>
-                <reportElement style="TableHeader" x="410" y="0" width="120" height="24"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement style="TableHeader" x="410" y="0" width="120" height="40"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
                 <text><![CDATA[Guarniciones]]></text>
             </staticText>
 
             <staticText>
-                <reportElement style="TableHeader" x="530" y="0" width="110" height="24"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement style="TableHeader" x="530" y="0" width="110" height="40"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
                 <text><![CDATA[Bebida]]></text>
             </staticText>
 
             <staticText>
-                <reportElement style="TableHeader" x="640" y="0" width="90" height="24"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement style="TableHeader" x="640" y="0" width="90" height="40"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
                 <text><![CDATA[Postre]]></text>
             </staticText>
 
             <staticText>
-                <reportElement style="TableHeader" x="730" y="0" width="72" height="24"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement style="TableHeader" x="730" y="0" width="72" height="40"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
                 <text><![CDATA[Precio]]></text>
             </staticText>
         </band>
     </columnHeader>
 
-    <!-- Filas de datos -->
     <detail>
-        <band height="22">
-
-            <!-- Nombre -->
+        <band height="32">
             <textField>
-                <reportElement style="TableCell" x="0" y="0" width="150" height="22"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement style="TableCell" x="0" y="0" width="150" height="32"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
             </textField>
 
-            <!-- Descripción -->
             <textField>
-                <reportElement style="TableCell" x="150" y="0" width="260" height="22"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement style="TableCell" x="150" y="0" width="260" height="32"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
             </textField>
 
-            <!-- Guarniciones: mostramos cantidad, no el objeto feo -->
             <textField>
-                <reportElement style="TableCell" x="410" y="0" width="120" height="22"/>
+                <reportElement style="TableCell" x="410" y="0" width="120" height="32"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[
-                    $F{guarniciones} == null
-                        ? ""
-                        : $F{guarniciones}.size() + " guarniciones"
-                ]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{guarniciones} == null ? "" : $F{guarniciones}.size() + " guarniciones"]]></textFieldExpression>
             </textField>
 
-            <!-- Bebida: mostramos el nombre -->
             <textField>
-                <reportElement style="TableCell" x="530" y="0" width="110" height="22"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[
-                    $F{bebida} == null
-                        ? ""
-                        : $F{bebida}.getNombre()
-                ]]></textFieldExpression>
+                <reportElement style="TableCell" x="530" y="0" width="110" height="32"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{bebida} == null ? "" : $F{bebida}.getNombre()]]></textFieldExpression>
             </textField>
 
-            <!-- Postre: también el nombre -->
             <textField>
-                <reportElement style="TableCell" x="640" y="0" width="90" height="22"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[
-                    $F{postre} == null
-                        ? ""
-                        : $F{postre}.getNombre()
-                ]]></textFieldExpression>
+                <reportElement style="TableCell" x="640" y="0" width="90" height="32"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{postre} == null ? "" : $F{postre}.getNombre()]]></textFieldExpression>
             </textField>
 
-            <!-- Precio -->
-            <textField>
-                <reportElement style="TableCell" x="730" y="0" width="72" height="22"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+            <textField pattern="$ #,##0.00">
+                <reportElement style="TableCell" x="730" y="0" width="72" height="32"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
             </textField>
 
