@@ -66,47 +66,15 @@ java.util.Date())]]></textFieldExpression>
 
         <band height="40">
             <staticText>
-                <reportElement style="TableHeader" x="0" y="0" width="120" height="40"/>
+                <reportElement style="TableHeader" x="0" y="0" width="52" height="40"/>
                 <textElement textAlignment="Left" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
-                <text><![CDATA[Fecha hora creación]]></text>
+                <text><![CDATA[Usuario]]></text>
             </staticText>
 
             <staticText>
-                <reportElement style="TableHeader" x="120" y="0" width="120" height="40"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle">
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[Hora estimada retiro]]></text>
-            </staticText>
-
-            <staticText>
-                <reportElement style="TableHeader" x="240" y="0" width="80" height="40"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[Total productos]]></text>
-            </staticText>
-
-            <staticText>
-                <reportElement style="TableHeader" x="320" y="0" width="160" height="40"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle">
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[Observaciones]]></text>
-            </staticText>
-
-            <staticText>
-                <reportElement style="TableHeader" x="480" y="0" width="90" height="40"/>
-                <textElement textAlignment="Right" verticalAlignment="Middle">
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[Monto total]]></text>
-            </staticText>
-
-            <staticText>
-                <reportElement style="TableHeader" x="570" y="0" width="90" height="40"/>
+                <reportElement style="TableHeader" x="52" y="0" width="90" height="40"/>
                 <textElement textAlignment="Left" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
@@ -114,7 +82,7 @@ java.util.Date())]]></textFieldExpression>
             </staticText>
 
             <staticText>
-                <reportElement style="TableHeader" x="660" y="0" width="90" height="40"/>
+                <reportElement style="TableHeader" x="142" y="0" width="90" height="40"/>
                 <textElement textAlignment="Left" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
@@ -122,11 +90,43 @@ java.util.Date())]]></textFieldExpression>
             </staticText>
 
             <staticText>
-                <reportElement style="TableHeader" x="750" y="0" width="52" height="40"/>
+                <reportElement style="TableHeader" x="232" y="0" width="120" height="40"/>
                 <textElement textAlignment="Left" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
-                <text><![CDATA[Usuario]]></text>
+                <text><![CDATA[Fecha hora creación]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement style="TableHeader" x="352" y="0" width="120" height="40"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Hora estimada retiro]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement style="TableHeader" x="472" y="0" width="80" height="40"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Total productos]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement style="TableHeader" x="552" y="0" width="160" height="40"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Observaciones]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement style="TableHeader" x="712" y="0" width="90" height="40"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Monto total]]></text>
             </staticText>
 
         </band>
@@ -135,51 +135,51 @@ java.util.Date())]]></textFieldExpression>
     <detail>
         <band height="32">
             <textField>
-                <reportElement style="TableCell" x="0" y="0" width="120" height="32"/>
+                <reportElement style="TableCell" x="0" y="0" width="52" height="32"/>
                 <textElement textAlignment="Left" verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[$F{fechaHoraCreacion}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{usuario.nombreUsuario}]]></textFieldExpression>
             </textField>
 
             <textField>
-                <reportElement style="TableCell" x="120" y="0" width="120" height="32"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[$F{horaEstimadaRetiro}]]></textFieldExpression>
-            </textField>
-
-            <textField>
-                <reportElement style="TableCell" x="240" y="0" width="80" height="32"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[$F{totalProductos}]]></textFieldExpression>
-            </textField>
-
-            <textField>
-                <reportElement style="TableCell" x="320" y="0" width="160" height="32"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[$F{observaciones}]]></textFieldExpression>
-            </textField>
-
-            <textField pattern="$ #,##0.00">
-                <reportElement style="TableCell" x="480" y="0" width="90" height="32"/>
-                <textElement textAlignment="Right" verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[$F{montoTotal}]]></textFieldExpression>
-            </textField>
-
-            <textField>
-                <reportElement style="TableCell" x="570" y="0" width="90" height="32"/>
+                <reportElement style="TableCell" x="52" y="0" width="90" height="32"/>
                 <textElement textAlignment="Left" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{tipoPedido.nombreTipoPedido}]]></textFieldExpression>
             </textField>
 
             <textField>
-                <reportElement style="TableCell" x="660" y="0" width="90" height="32"/>
+                <reportElement style="TableCell" x="142" y="0" width="90" height="32"/>
                 <textElement textAlignment="Left" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{estadoPedido.nombreEstado}]]></textFieldExpression>
             </textField>
 
             <textField>
-                <reportElement style="TableCell" x="750" y="0" width="52" height="32"/>
+                <reportElement style="TableCell" x="232" y="0" width="120" height="32"/>
                 <textElement textAlignment="Left" verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[$F{usuario.nombreUsuario}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{fechaHoraCreacion}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement style="TableCell" x="352" y="0" width="120" height="32"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{horaEstimadaRetiro}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement style="TableCell" x="472" y="0" width="80" height="32"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{totalProductos}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement style="TableCell" x="552" y="0" width="160" height="32"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{observaciones}]]></textFieldExpression>
+            </textField>
+
+            <textField pattern="$ #,##0.00">
+                <reportElement style="TableCell" x="712" y="0" width="90" height="32"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{montoTotal}]]></textFieldExpression>
             </textField>
 
         </band>
