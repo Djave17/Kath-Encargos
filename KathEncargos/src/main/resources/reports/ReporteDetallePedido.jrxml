@@ -22,13 +22,14 @@
     <field name="precioUnitario" class="java.math.BigDecimal"/>
     <field name="subtotal" class="java.math.BigDecimal"/>
     <field name="platillo.nombre" class="java.lang.String"/>
+    <field name="pedido.fechaHoraCreacion" class="java.time.LocalDateTime"/>
 
     <title>
         <band height="90">
-        <image scaleImage="RetainShape">
-            <reportElement x="0" y="0" width="70" height="70"/>
-            <imageExpression><![CDATA["reports/Logo_Kath_encargosss.png"]]></imageExpression>
-        </image>
+            <image scaleImage="RetainShape">
+                <reportElement x="0" y="0" width="70" height="70"/>
+                <imageExpression><![CDATA["reports/Logo_Kath_encargosss.png"]]></imageExpression>
+            </image>
 
             <staticText>
                 <reportElement x="80" y="8" width="480" height="30"/>
@@ -62,28 +63,35 @@ java.util.Date())]]></textFieldExpression>
 
         <band height="40">
             <staticText>
-                <reportElement style="TableHeader" x="0" y="0" width="360" height="40"/>
+                <reportElement style="TableHeader" x="0" y="0" width="260" height="40"/>
                 <textElement textAlignment="Left" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Platillo]]></text>
             </staticText>
             <staticText>
-                <reportElement style="TableHeader" x="360" y="0" width="120" height="40"/>
+                <reportElement style="TableHeader" x="260" y="0" width="100" height="40"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Cantidad]]></text>
             </staticText>
             <staticText>
-                <reportElement style="TableHeader" x="480" y="0" width="150" height="40"/>
+                <reportElement style="TableHeader" x="360" y="0" width="170" height="40"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Fecha creación pedido]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="TableHeader" x="530" y="0" width="130" height="40"/>
                 <textElement textAlignment="Right" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Precio unitario]]></text>
             </staticText>
             <staticText>
-                <reportElement style="TableHeader" x="630" y="0" width="172" height="40"/>
+                <reportElement style="TableHeader" x="660" y="0" width="142" height="40"/>
                 <textElement textAlignment="Right" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
@@ -95,22 +103,27 @@ java.util.Date())]]></textFieldExpression>
     <detail>
         <band height="32">
             <textField>
-                <reportElement style="TableCell" x="0" y="0" width="360" height="32"/>
+                <reportElement style="TableCell" x="0" y="0" width="260" height="32"/>
                 <textElement textAlignment="Left" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{platillo.nombre}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement style="TableCell" x="360" y="0" width="120" height="32"/>
+                <reportElement style="TableCell" x="260" y="0" width="100" height="32"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
             </textField>
+            <textField pattern="dd/MM/yyyy HH:mm">
+                <reportElement style="TableCell" x="360" y="0" width="170" height="32"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{pedido.fechaHoraCreacion}]]></textFieldExpression>
+            </textField>
             <textField pattern="$ #,##0.00">
-                <reportElement style="TableCell" x="480" y="0" width="150" height="32"/>
+                <reportElement style="TableCell" x="530" y="0" width="130" height="32"/>
                 <textElement textAlignment="Right" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{precioUnitario}]]></textFieldExpression>
             </textField>
             <textField pattern="$ #,##0.00">
-                <reportElement style="TableCell" x="630" y="0" width="172" height="32"/>
+                <reportElement style="TableCell" x="660" y="0" width="142" height="32"/>
                 <textElement textAlignment="Right" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
             </textField>

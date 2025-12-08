@@ -31,13 +31,13 @@ public class Factura {
     @Column(name = "id_factura", nullable = false)
     private Long idFactura;
 
-    // Número de factura se genera automáticamente, por eso no es @Required ni nullable=false
-    @ReadOnly // opcional, pero recomendable para que el usuario no lo cambie
+    // Se genera automáticamente, por eso no es @Required
+    @ReadOnly
     @Column(name = "numero_factura", length = 30, nullable = true, unique = true)
     private String numeroFactura;
 
-    // También se genera automáticamente si viene null
-    @Column(name = "fecha_emision", nullable = true)
+    // ? OJO: ahora mapeamos a la columna REAL de la BD: "fecha"
+    @Column(name = "fecha", nullable = true)
     private LocalDateTime fechaEmision;
 
     @ManyToOne
@@ -64,12 +64,12 @@ public class Factura {
     @PreUpdate
     protected void prepararDatos() {
 
-        // Si no hay fecha, ponemos la actual
+        // Fecha por defecto
         if (fechaEmision == null) {
             fechaEmision = LocalDateTime.now();
         }
 
-        // Si no hay número de factura, lo generamos con timestamp
+        // Número de factura por defecto
         if (numeroFactura == null || numeroFactura.isEmpty()) {
             numeroFactura = "FAC-" +
                     fechaEmision.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
@@ -77,7 +77,7 @@ public class Factura {
 
         if (pedido != null) {
 
-            // Si no han seleccionado cliente, se toma del pedido
+            // Cliente desde el pedido si no está
             if (cliente == null) {
                 cliente = pedido.getUsuario();
             }
