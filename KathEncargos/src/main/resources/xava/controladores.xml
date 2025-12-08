@@ -63,6 +63,11 @@
             modo="list"
             clase="uam.edu.ni.KathEncargos.report.actions.PrintPostresReportAction"/>
 
+    <accion nombre="printFactura"
+            icono="printer"
+            modo="detail"
+            clase="uam.edu.ni.KathEncargos.report.actions.PrintFacturaReportAction"/>
+
 
 </controlador>
     

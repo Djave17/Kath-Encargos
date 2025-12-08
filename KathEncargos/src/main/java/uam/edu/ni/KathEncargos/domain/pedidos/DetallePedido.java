@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 @Table(name = "DetallePedido")
 @Getter @Setter
 
+
 public class DetallePedido {
     @Id
     @Hidden
