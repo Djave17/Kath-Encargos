@@ -22,8 +22,8 @@
     <field name="descripcion" class="java.lang.String"/>
     <field name="precio" class="java.lang.Double"/>
     <field name="guarniciones" class="java.util.Collection"/>
-    <field name="bebida" class="uam.edu.ni.KathEncargos.domain.menu.Bebida"/>
-    <field name="postre" class="uam.edu.ni.KathEncargos.domain.menu.Postre"/>
+    <field name="bebidas" class="java.util.Collection"/>
+    <field name="postres" class="java.util.Collection"/>
 
     <title>
         <band height="90">
@@ -135,13 +135,13 @@ java.util.Date())]]></textFieldExpression>
             <textField>
                 <reportElement style="TableCell" x="530" y="0" width="110" height="32"/>
                 <textElement textAlignment="Left" verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[$F{bebida} == null ? "" : $F{bebida}.getNombre()]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{bebidas} == null ? "" : $F{bebidas}.size() + " bebidas"]]></textFieldExpression>
             </textField>
 
             <textField>
                 <reportElement style="TableCell" x="640" y="0" width="90" height="32"/>
                 <textElement textAlignment="Left" verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[$F{postre} == null ? "" : $F{postre}.getNombre()]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{postres} == null ? "" : $F{postres}.size() + " postres"]]></textFieldExpression>
             </textField>
 
             <textField pattern="$ #,##0.00">
