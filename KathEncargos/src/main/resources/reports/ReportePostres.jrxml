@@ -60,7 +60,7 @@ java.util.Date())]]></textFieldExpression>
         <band height="40">
             <staticText>
                 <reportElement style="TableHeader" x="0" y="0" width="200" height="40"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle">
+                <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Nombre]]></text>
@@ -68,7 +68,7 @@ java.util.Date())]]></textFieldExpression>
 
             <staticText>
                 <reportElement style="TableHeader" x="200" y="0" width="360" height="40"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle">
+                <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Descripción]]></text>
@@ -77,7 +77,7 @@ java.util.Date())]]></textFieldExpression>
             <staticText>
 
                 <reportElement style="TableHeader" x="560" y="0" width="242" height="40"/>
-                <textElement textAlignment="Right" verticalAlignment="Middle">
+                <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Precio]]></text>
@@ -89,19 +89,19 @@ java.util.Date())]]></textFieldExpression>
         <band height="32">
             <textField>
                 <reportElement style="TableCell" x="0" y="0" width="200" height="32"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
             </textField>
 
             <textField>
                 <reportElement style="TableCell" x="200" y="0" width="360" height="32"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
             </textField>
 
             <textField pattern="$ #,##0.00">
                 <reportElement style="TableCell" x="560" y="0" width="242" height="32"/>
-                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
             </textField>
         </band>

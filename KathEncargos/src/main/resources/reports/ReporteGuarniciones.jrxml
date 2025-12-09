@@ -61,21 +61,21 @@
         <band height="40">
             <staticText>
                 <reportElement style="TableHeader" x="0" y="0" width="260" height="40"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle">
+                <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Nombre]]></text>
             </staticText>
             <staticText>
                 <reportElement style="TableHeader" x="260" y="0" width="422" height="40"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle">
+                <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Categoría]]></text>
             </staticText>
             <staticText>
                 <reportElement style="TableHeader" x="682" y="0" width="120" height="40"/>
-                <textElement textAlignment="Right" verticalAlignment="Middle">
+                <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Precio]]></text>
@@ -88,23 +88,23 @@
         <band height="56">
             <textField>
                 <reportElement style="TableCell" x="0" y="0" width="260" height="28"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{nombreGuarnicion}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement style="TableCell" x="260" y="0" width="422" height="28"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{categoriaGuarnicion.nombreCategoria}]]></textFieldExpression>
             </textField>
 
             <textField pattern="$ #,##0.00">
                 <reportElement style="TableCell" x="682" y="0" width="120" height="28"/>
-                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement style="TableCell" x="0" y="28" width="802" height="28"/>
-                <textElement textAlignment="Left" verticalAlignment="Top"/>
+                <textElement textAlignment="Center" verticalAlignment="Top"/>
                 <textFieldExpression><![CDATA[$F{platillos} == null ? "" : ((java.util.Collection)$F{platillos}).stream().map(p -> ((uam.edu.ni.KathEncargos.domain.menu.Platillo) p).getNombre()).collect(java.util.stream.Collectors.joining(", "))]]></textFieldExpression>
             </textField>
         </band>

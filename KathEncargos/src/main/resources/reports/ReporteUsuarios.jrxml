@@ -62,42 +62,42 @@ java.util.Date())]]></textFieldExpression>
         <band height="40">
             <staticText>
                 <reportElement style="TableHeader" x="0" y="0" width="160" height="40"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle">
+                <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Nombre]]></text>
             </staticText>
             <staticText>
                 <reportElement style="TableHeader" x="160" y="0" width="170" height="40"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle">
+                <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Email]]></text>
             </staticText>
             <staticText>
                 <reportElement style="TableHeader" x="330" y="0" width="110" height="40"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle">
+                <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Teléfono]]></text>
             </staticText>
             <staticText>
                 <reportElement style="TableHeader" x="440" y="0" width="200" height="40"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle">
+                <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Dirección]]></text>
             </staticText>
             <staticText>
                 <reportElement style="TableHeader" x="640" y="0" width="80" height="40"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle">
+                <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Rol]]></text>
             </staticText>
             <staticText>
                 <reportElement style="TableHeader" x="720" y="0" width="82" height="40"/>
-                <textElement textAlignment="Right" verticalAlignment="Middle">
+                <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Registro]]></text>
@@ -109,32 +109,32 @@ java.util.Date())]]></textFieldExpression>
         <band height="32">
             <textField>
                 <reportElement style="TableCell" x="0" y="0" width="160" height="32"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{nombreUsuario}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement style="TableCell" x="160" y="0" width="170" height="32"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement style="TableCell" x="330" y="0" width="110" height="32"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement style="TableCell" x="440" y="0" width="200" height="32"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{direccionReferencia}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement style="TableCell" x="640" y="0" width="80" height="32"/>
-                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{rol.nombre}]]></textFieldExpression>
             </textField>
             <textField pattern="dd/MM/yyyy">
                 <reportElement style="TableCell" x="720" y="0" width="82" height="32"/>
-                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{fechaRegistro}]]></textFieldExpression>
             </textField>
         </band>
