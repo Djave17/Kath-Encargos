@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN"
+        "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="ReporteFacturas" pageWidth="595" pageHeight="842" columnWidth="535"
+              leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20">
+
+    <style name="TableHeader" mode="Opaque" backcolor="#f4f4f4">
+        <box leftPadding="6" rightPadding="6" topPadding="4" bottomPadding="4">
+            <pen lineWidth="0.5" lineColor="#9e9e9e"/>
+        </box>
+    </style>
+
+    <style name="TableCell">
+        <box leftPadding="8" rightPadding="8" topPadding="6" bottomPadding="6">
+            <pen lineWidth="0.5" lineColor="#c5c5c5"/>
+        </box>
+    </style>
+
+    <field name="numeroFactura" class="java.lang.String"/>
+    <field name="fechaEmision" class="java.time.LocalDateTime"/>
+    <field name="formaPago" class="java.lang.String"/>
+    <field name="subtotal" class="java.math.BigDecimal"/>
+    <field name="impuestos" class="java.math.BigDecimal"/>
+    <field name="total" class="java.math.BigDecimal"/>
+    <field name="cliente.nombreUsuario" class="java.lang.String"/>
+    <field name="pedido.idPedido" class="java.lang.Long"/>
+
+    <title>
+        <band height="90">
+            <image scaleImage="RetainShape">
+                <reportElement x="0" y="0" width="70" height="70"/>
+                <imageExpression><![CDATA["reports/Logo_Kath_encargosss.png"]]></imageExpression>
+            </image>
+
+            <staticText>
+                <reportElement x="80" y="8" width="480" height="30"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="20" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Facturas emitidas]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="80" y="40" width="480" height="18"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="10" isItalic="true"/>
+                </textElement>
+                <text><![CDATA[Detalle de facturas generadas a partir de pedidos.]]></text>
+            </staticText>
+
+            <textField>
+                <reportElement x="360" y="8" width="200" height="18"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Fecha de generación: " + new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="40">
+            <staticText>
+                <reportElement style="TableHeader" x="0" y="0" width="90" height="40"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Número]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement style="TableHeader" x="90" y="0" width="90" height="40"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Fecha emisión]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement style="TableHeader" x="180" y="0" width="80" height="40"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Pedido]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement style="TableHeader" x="260" y="0" width="90" height="40"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Cliente]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement style="TableHeader" x="350" y="0" width="70" height="40"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Pago]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement style="TableHeader" x="420" y="0" width="55" height="40"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Subtot]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement style="TableHeader" x="475" y="0" width="55" height="40"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Imp.]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement style="TableHeader" x="530" y="0" width="55" height="40"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Total]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="32">
+            <textField>
+                <reportElement style="TableCell" x="0" y="0" width="90" height="32"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{numeroFactura}]]></textFieldExpression>
+            </textField>
+
+            <textField pattern="dd/MM/yyyy HH:mm">
+                <reportElement style="TableCell" x="90" y="0" width="90" height="32"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{fechaEmision}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement style="TableCell" x="180" y="0" width="80" height="32"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{pedido.idPedido}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement style="TableCell" x="260" y="0" width="90" height="32"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{cliente.nombreUsuario}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement style="TableCell" x="350" y="0" width="70" height="32"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{formaPago}]]></textFieldExpression>
+            </textField>
+
+            <textField pattern="$ #,##0.00">
+                <reportElement style="TableCell" x="420" y="0" width="55" height="32"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+            </textField>
+
+            <textField pattern="$ #,##0.00">
+                <reportElement style="TableCell" x="475" y="0" width="55" height="32"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{impuestos}]]></textFieldExpression>
+            </textField>
+
+            <textField pattern="$ #,##0.00">
+                <reportElement style="TableCell" x="530" y="0" width="55" height="32"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>
